@@ -1,0 +1,37 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def nextPermutation(permutation, n):
+    # Write your code here.
+    # Return a list.
+    found=False
+    i=n-2
+    while i>=0:
+        if permutation[i]<permutation[i+1]:
+            found=True
+            break
+        i-=1
+    if not found:
+        permutation.sort()
+    else:
+        m=findMax(i+1,permutation,permutation[i])
+        permutation[m],permutation[i]=permutation[i],permutation[m]
+        permutation[i+1:]=permutation[i+1:][::-1]
+    return permutation
+def findMax(index,a,cur):
+    ans=-1
+    for i in range(index,len(a)):
+        if a[i]>cur:
+            if ans==-1:
+                ans=cur
+                index=i
+                
+            else:
+                ans=min(ans,a[i])
+                index=i
+                
+    return index            
+            
+    pass
