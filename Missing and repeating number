@@ -1,0 +1,22 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def missingAndRepeating(arr, n):
+    # Write your code here
+    for i in range(n+1):
+        if i not in arr:
+            a=i
+    d={}        
+    for i in range(n):
+        if arr[i] not in d:
+            d[arr[i]]=1
+        else:
+            d[arr[i]]+=1
+            
+    for i in d:
+        if d[i]==2:
+            b=i
+    return a,b
+    pass
