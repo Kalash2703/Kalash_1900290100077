@@ -1,0 +1,20 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def ninjaAndSortedArrays(arr1,arr2,m,n):
+    # Write your code here.
+    i=m+n-1
+    p1=m-1
+    p2=n-1
+    while p2>=0:
+        if p1>=0 and arr1[p1]>arr2[p2]:
+            arr1[i]=arr1[p1]
+            p1-=1
+        else:
+            arr1[i]=arr2[p2]
+            p2-=1
+        i-=1
+    return sorted(arr1)    
+    pass
